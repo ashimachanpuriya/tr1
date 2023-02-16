@@ -3,7 +3,7 @@ name: showcase_cicd_snowflake
 on:
   push:
     branches:
-      - main
+      - test
     paths:
       - 'dbscripts/**'
       
@@ -24,12 +24,12 @@ jobs:
           
       - name: Run schemachange
         env:
-          SF_ACCOUNT: ${{secrets.SF_ACCOUNT}}
-          SF_USERNAME: ${{secrets.SF_USERNAME}}
+          SF_ACCOUNT: ${{secrets.SF_ACCOUNT1}}
+          SF_USERNAME: ${{secrets.SF_USERNAME1}}
           SF_ROLE: ${{secrets.SF_ROLE}}
           SF_WAREHOUSE: ${{secrets.SF_WAREHOUSE}}
           SF_DATABASE: ${{secrets.SF_DATABASE}}
-          SNOWFLAKE_PASSWORD: ${{secrets.SF_PASSWORD}}
+          SNOWFLAKE_PASSWORD: ${{secrets.SF_PASSWORD1}}
         run:  |
           echo "GITHUB_WORKSPACE: $GITHUB_WORKSPACE"
           python --version
